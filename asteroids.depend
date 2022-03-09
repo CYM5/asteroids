@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1641190879 source:/home/cyms/Documents/code/asteroids/main.cpp
+	<SFML/Graphics.hpp>
+	"include/Spaceship.h"
+
+1641718830 /home/cyms/Documents/code/asteroids/include/Spaceship.h
+	<SFML/Graphics.hpp>
+
+1641718757 source:/home/cyms/Documents/code/asteroids/src/Spaceship.cpp
+	"../include/Spaceship.h"
+	<iostream>
+
+1641718570 source:/home/cyms/Documents/code/asteroids/src/main.cpp
+	<SFML/Graphics.hpp>
+	"../include/Spaceship.h"
+
