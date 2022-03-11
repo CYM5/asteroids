@@ -13,6 +13,7 @@
 				<Option compiler="clang" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics" />
@@ -27,6 +28,7 @@
 				<Option compiler="clang" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -39,9 +41,13 @@
 		<Compiler>
 			<Add option="-Weverything" />
 		</Compiler>
+		<Unit filename="include/Coordinate.h" />
 		<Unit filename="include/Spaceship.h" />
-		<Unit filename="src/main.cpp" />
+		<Unit filename="include/Speed.h" />
+		<Unit filename="src/Coordinate.cpp" />
 		<Unit filename="src/Spaceship.cpp" />
+		<Unit filename="src/Speed.cpp" />
+		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
