@@ -1,34 +1,41 @@
 #include "../include/Spaceship.h"
+#include "../include/Speed.h"
 #include <iostream>
 
 Spaceship::Spaceship(){
-    if (!m_texture.loadFromFile("/home/cyms/Documents/code/asteroids/ressources/spaceship.png"))
+    if (!m_texture.loadFromFile("/home/alex/asteroids/ressources/spaceship.png"))
     {
         std::cerr << "Can't open texture" << std::endl;
         return;
     }
     m_sprite.setTexture(m_texture);
     m_sprite.setScale(0.1,0.1);
+    m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2, m_sprite.getLocalBounds().height / 2);
+    m_sprite.setPosition(position.getX(), position.getY());
+
 
 }
 
-void Spaceship::updateState(sf::Event const& event){
-
-    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up){
-        isAccelerat=true;
-    }
-    else if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Up)
-    {
-        isAccelerat=false;
-    }
+void Spaceship::updateState(){
+    isAccelerate = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+    isLeftRotate = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
+    isRightRotate = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
 }
 
 void Spaceship::update(float loop_time){
-    if (isAccelerat==true) {
-        speed += ACCELERATION * loop_time;
+    if (isAccelerate) {
+        speed += Speed::CreateNewSpeedVector(ACCELERATION * loop_time, m_sprite.getRotation());
     }
     speed -= speed *FRICTION_COEF * loop_time; //Deceleration
-    m_sprite.move(speed*loop_time, 0);
+    Speed target_move = speed*loop_time;
+    position += target_move;
+    m_sprite.setPosition(position.getX(), position.getY());
+    if (isLeftRotate) {
+        m_sprite.rotate (- ANGLE * loop_time);
+    }
+    if (isRightRotate) {
+        m_sprite.rotate (ANGLE * loop_time);
+    }
 }
 
 void Spaceship::print(sf::RenderWindow& window) const{

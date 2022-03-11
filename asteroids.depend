@@ -14,3 +14,30 @@
 	<SFML/Graphics.hpp>
 	"../include/Spaceship.h"
 
+1647000899 source:/home/alex/asteroids/src/main.cpp
+	<SFML/Graphics.hpp>
+	"../include/Spaceship.h"
+	"Coordinate.h"
+
+1646999591 /home/alex/asteroids/include/Spaceship.h
+	<SFML/Graphics.hpp>
+	"Speed.h"
+	"Coordinate.h"
+
+1646998704 /home/alex/asteroids/include/Speed.h
+
+1647000782 source:/home/alex/asteroids/src/Spaceship.cpp
+	"../include/Spaceship.h"
+	"../include/Speed.h"
+	<iostream>
+
+1646999081 source:/home/alex/asteroids/src/Speed.cpp
+	"Speed.h"
+	<cmath>
+
+1647000810 source:/home/alex/asteroids/src/Coordinate.cpp
+	"Coordinate.h"
+
+1647000823 /home/alex/asteroids/include/Coordinate.h
+	"Speed.h"
+
