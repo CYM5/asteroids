@@ -4,17 +4,13 @@
 #include <SFML/Graphics.hpp>
 #include "Speed.h"
 #include "Coordinate.h"
-class Spaceship{
+#include "Element.h"
+class Spaceship : public Element{
     public:
         Spaceship();
         void updateState();
         void update(float loop_time);
-        void print(sf::RenderWindow& window) const;
     private:
-        sf::Texture m_texture{};
-        sf::Sprite m_sprite{};
-        Speed speed = {0, 0};
-        Coordinate position;
         bool isAccelerate = false;
         bool isLeftRotate = false;
         bool isRightRotate = false;

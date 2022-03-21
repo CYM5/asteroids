@@ -2,17 +2,8 @@
 #include "../include/Speed.h"
 #include <iostream>
 
-Spaceship::Spaceship(){
-    if (!m_texture.loadFromFile("/home/alex/asteroids/ressources/spaceship.png"))
-    {
-        std::cerr << "Can't open texture" << std::endl;
-        return;
-    }
-    m_sprite.setTexture(m_texture);
-    m_sprite.setScale(0.1,0.1);
-    m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2, m_sprite.getLocalBounds().height / 2);
-    m_sprite.setPosition(position.getX(), position.getY());
-
+Spaceship::Spaceship() : Element{"ressources/spaceship.png"}
+{
 
 }
 
@@ -36,8 +27,4 @@ void Spaceship::update(float loop_time){
     if (isRightRotate) {
         m_sprite.rotate (ANGLE * loop_time);
     }
-}
-
-void Spaceship::print(sf::RenderWindow& window) const{
-    window.draw(m_sprite);
 }

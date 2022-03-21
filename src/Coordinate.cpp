@@ -2,6 +2,10 @@
 float max_width = 0;
 float max_height = 0;
 
+Coordinate::Coordinate(float x, float y) {
+    m_x =x;
+    m_y = y;
+}
 float Coordinate::getX(){
     return m_x;
 }
